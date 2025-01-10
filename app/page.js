@@ -3,7 +3,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="flex flex-col justify-center items-center m-2 w-full h-screen">
+    <div className="bg-image h-screen w-full flex flex-col justify-center items-center ">
       <h1>Bloom</h1>
       <Timer />
     </div>
