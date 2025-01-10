@@ -67,7 +67,7 @@ const Timer = () => {
         </Button>
       </div>
 
-      <div>
+      <div className="font-semibold text-6xl mt-6 mb-6">
         <p>{formatTime(time)}</p>
       </div>
 
