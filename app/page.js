@@ -1,17 +1,24 @@
+"use client";
+
+import React, { useState } from "react";
 import NavItems from "@/components/navItems/navitems";
 import Timer from "@/components/timer";
-import React from "react";
 
 const Home = () => {
+  const [backgroundImage, setBackgroundImage] = useState("/cafeteria.jpeg");
+
   return (
     <>
-      <div className="bg-image h-screen w-full flex flex-col justify-center items-center ">
-        {/* <div className="flex flex-col justify-center items-center"> */}
+      <div
+        className="h-screen w-full flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat opacity-80"
+        style={{
+          backgroundImage: `url(${backgroundImage})`
+        }}
+      >
         <Timer />
-        {/* </div> */}
 
         <div className="absolute top-1/2 left-0 -translate-y-1/2 ml-8">
-          <NavItems />
+          <NavItems onSelectImage={setBackgroundImage} />
         </div>
 
         <div className="absolute bottom-8 left-0 ml-8">

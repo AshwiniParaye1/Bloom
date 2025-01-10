@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { IoImagesOutline } from "react-icons/io5";
 
-const BackgroundImages = () => {
+const BackgroundImages = ({ onSelectImage }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const images = [
@@ -23,7 +23,7 @@ const BackgroundImages = () => {
   return (
     <>
       <div className="text-gray-200">
-        <button onClick={() => handleBgImage()}>
+        <button onClick={handleBgImage}>
           <IoImagesOutline size={25} />
         </button>
       </div>
@@ -37,7 +37,11 @@ const BackgroundImages = () => {
               alt="scene"
               width={400}
               height={30}
-              className="w-full h-36 object-cover rounded-xl"
+              className="w-full h-36 object-cover rounded-xl cursor-pointer"
+              onClick={() => {
+                onSelectImage(src);
+                setIsVisible(false);
+              }}
             />
           ))}
         </div>
