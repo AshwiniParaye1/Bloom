@@ -6,7 +6,8 @@ import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
 import { RiRestartLine } from "react-icons/ri";
 
 const Timer = () => {
-  const [time, setTime] = useState(25 * 60);
+  const [initialTime, setInitialTime] = useState(25 * 60);
+  const [time, setTime] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
 
   const formatTime = (time) => {
@@ -21,6 +22,10 @@ const Timer = () => {
   // Handle timer countdown
   useEffect(() => {
     let timer;
+
+    console.log(time);
+    console.log("ini", formatTime(initialTime));
+
     if (isRunning && time > 0) {
       timer = setInterval(() => {
         setTime((prevTime) => prevTime - 1);
@@ -34,13 +39,13 @@ const Timer = () => {
   return (
     <>
       <div className="flex gap-2">
-        <Button variant="outline" className="">
+        <Button variant="outline" className="" onClick={() => setTime(25 * 60)}>
           Pomodoro
         </Button>
-        <Button variant="outline" className="">
+        <Button variant="outline" className="" onClick={() => setTime(5 * 60)}>
           Short Break
         </Button>
-        <Button variant="outline" className="">
+        <Button variant="outline" className="" onClick={() => setTime(10 * 60)}>
           Long Break
         </Button>
       </div>
@@ -58,7 +63,7 @@ const Timer = () => {
         </div>
 
         <div>
-          <Button variant="outline" onClick={() => setTime(25 * 60)}>
+          <Button variant="outline" onClick={() => setTime(initialTime)}>
             <RiRestartLine />
           </Button>
         </div>
