@@ -43,24 +43,30 @@ const Timer = () => {
   };
   return (
     <>
-      <div className="flex gap-4">
+      <div className="flex gap-4 ">
         <Button
           variant="outline"
-          className={`${selectedTimer === "pomodoro" ? "bg-gray-200" : ""} `}
+          className={`${
+            selectedTimer === "pomodoro" ? "bg-gray-200" : ""
+          } text-base`}
           onClick={() => handleSetInitialTime(25 * 60, "pomodoro")}
         >
           Pomodoro
         </Button>
         <Button
           variant="outline"
-          className={`${selectedTimer === "shortBreak" ? "bg-gray-200" : ""}`}
+          className={`${
+            selectedTimer === "shortBreak" ? "bg-gray-200" : ""
+          } text-base`}
           onClick={() => handleSetInitialTime(5 * 60, "shortBreak")}
         >
           Short Break
         </Button>
         <Button
           variant="outline"
-          className={`${selectedTimer === "longBreak" ? "bg-gray-200" : ""}`}
+          className={`${
+            selectedTimer === "longBreak" ? "bg-gray-200" : ""
+          } text-base`}
           onClick={() => handleSetInitialTime(10 * 60, "longBreak")}
         >
           Long Break

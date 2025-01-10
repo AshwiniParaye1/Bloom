@@ -4,7 +4,7 @@ import { IoMusicalNotesOutline } from "react-icons/io5";
 const BackgroundMusic = () => {
   return (
     <div className="text-gray-200">
-      <IoMusicalNotesOutline />
+      <IoMusicalNotesOutline size={25} />
     </div>
   );
 };

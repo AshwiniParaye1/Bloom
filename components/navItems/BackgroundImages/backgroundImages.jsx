@@ -4,7 +4,7 @@ import { IoImagesOutline } from "react-icons/io5";
 const BackgroundImages = () => {
   return (
     <div className="text-gray-200">
-      <IoImagesOutline />
+      <IoImagesOutline size={25} />
     </div>
   );
 };

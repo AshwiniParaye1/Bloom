@@ -16,7 +16,7 @@ const Home = () => {
         </div>
 
         <div className="absolute bottom-8 left-0 ml-8">
-          <p className="text-gray-500">Build by Ashwini Paraye</p>
+          <p className="text-gray-400">Build by Ashwini Paraye</p>
         </div>
       </div>
     </>

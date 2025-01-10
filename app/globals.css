@@ -9,7 +9,7 @@ body {
 }
 
 .bg-image {
-  background-image: url("/blossom.jpeg");
+  background-image: url("/cafeteria.jpeg");
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */
