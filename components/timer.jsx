@@ -43,10 +43,10 @@ const Timer = () => {
   };
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         <Button
           variant="outline"
-          className={`${selectedTimer === "pomodoro" ? "bg-gray-200" : ""}`}
+          className={`${selectedTimer === "pomodoro" ? "bg-gray-200" : ""} `}
           onClick={() => handleSetInitialTime(25 * 60, "pomodoro")}
         >
           Pomodoro
@@ -68,18 +68,19 @@ const Timer = () => {
       </div>
 
       <div className="font-semibold text-6xl mt-6 mb-6">
-        <p>{formatTime(time)}</p>
+        <p className="text-gray-200">{formatTime(time)}</p>
       </div>
 
       {/* start/pause, restart */}
-      <div className="flex gap-2">
-        <div className="flex gap-2">
+      <div className="flex gap-4">
+        <div className="flex gap-4">
           <Button
             variant="outline"
             onClick={() => {
               if (time > 0) setIsRunning(!isRunning);
               setIsRunning(!isRunning);
             }}
+            className="bg-gray-200"
           >
             {isRunning ? <IoPlayOutline /> : <IoPauseOutline />}
           </Button>
@@ -91,6 +92,7 @@ const Timer = () => {
             onClick={() => {
               if (initialTime !== null) setTime(initialTime);
             }}
+            className="bg-gray-200"
           >
             <RiRestartLine />
           </Button>
