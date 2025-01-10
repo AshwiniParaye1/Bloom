@@ -9,8 +9,10 @@ const Timer = () => {
   const [initialTime, setInitialTime] = useState(25 * 60);
   const [time, setTime] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
+  const [selectedTimer, setSelectedTimer] = useState("pomodoro"); // Track selected button
 
   const formatTime = (time) => {
+    if (time === null || time < 0) return "00:00";
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
@@ -32,16 +34,35 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, [isRunning, time]);
 
+  // Handle setting a new initial time and updating selected timer
+  const handleSetInitialTime = (newTime, timerType) => {
+    setInitialTime(newTime);
+    setTime(newTime);
+    setSelectedTimer(timerType);
+    setIsRunning(false);
+  };
   return (
     <>
       <div className="flex gap-2">
-        <Button variant="outline" className="" onClick={() => setTime(25 * 60)}>
+        <Button
+          variant="outline"
+          className={`${selectedTimer === "pomodoro" ? "bg-gray-200" : ""}`}
+          onClick={() => handleSetInitialTime(25 * 60, "pomodoro")}
+        >
           Pomodoro
         </Button>
-        <Button variant="outline" className="" onClick={() => setTime(5 * 60)}>
+        <Button
+          variant="outline"
+          className={`${selectedTimer === "shortBreak" ? "bg-gray-200" : ""}`}
+          onClick={() => handleSetInitialTime(5 * 60, "shortBreak")}
+        >
           Short Break
         </Button>
-        <Button variant="outline" className="" onClick={() => setTime(10 * 60)}>
+        <Button
+          variant="outline"
+          className={`${selectedTimer === "longBreak" ? "bg-gray-200" : ""}`}
+          onClick={() => handleSetInitialTime(10 * 60, "longBreak")}
+        >
           Long Break
         </Button>
       </div>
@@ -53,13 +74,24 @@ const Timer = () => {
       {/* start/pause, restart */}
       <div className="flex gap-2">
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => setIsRunning(!isRunning)}>
+          <Button
+            variant="outline"
+            onClick={() => {
+              if (time > 0) setIsRunning(!isRunning);
+              setIsRunning(!isRunning);
+            }}
+          >
             {isRunning ? <IoPlayOutline /> : <IoPauseOutline />}
           </Button>
         </div>
 
         <div>
-          <Button variant="outline" onClick={() => setTime(initialTime)}>
+          <Button
+            variant="outline"
+            onClick={() => {
+              if (initialTime !== null) setTime(initialTime);
+            }}
+          >
             <RiRestartLine />
           </Button>
         </div>
