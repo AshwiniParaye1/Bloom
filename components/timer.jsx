@@ -47,7 +47,7 @@ const Timer = () => {
         <Button
           variant="outline"
           className={`${
-            selectedTimer === "pomodoro" ? "bg-gray-200" : ""
+            selectedTimer === "pomodoro" ? "bg-gray-200" : "text-gray-200"
           } text-base`}
           onClick={() => handleSetInitialTime(25 * 60, "pomodoro")}
         >
@@ -56,8 +56,8 @@ const Timer = () => {
         <Button
           variant="outline"
           className={`${
-            selectedTimer === "shortBreak" ? "bg-gray-200" : ""
-          } text-base`}
+            selectedTimer === "shortBreak" ? "bg-gray-200" : "text-gray-200"
+          } text-base `}
           onClick={() => handleSetInitialTime(5 * 60, "shortBreak")}
         >
           Short Break
@@ -65,7 +65,7 @@ const Timer = () => {
         <Button
           variant="outline"
           className={`${
-            selectedTimer === "longBreak" ? "bg-gray-200" : ""
+            selectedTimer === "longBreak" ? "bg-gray-200" : "text-gray-200"
           } text-base`}
           onClick={() => handleSetInitialTime(10 * 60, "longBreak")}
         >
