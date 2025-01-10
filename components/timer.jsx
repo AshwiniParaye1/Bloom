@@ -22,10 +22,6 @@ const Timer = () => {
   // Handle timer countdown
   useEffect(() => {
     let timer;
-
-    console.log(time);
-    console.log("ini", formatTime(initialTime));
-
     if (isRunning && time > 0) {
       timer = setInterval(() => {
         setTime((prevTime) => prevTime - 1);
