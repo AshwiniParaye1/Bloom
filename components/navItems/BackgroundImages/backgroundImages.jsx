@@ -1,20 +1,12 @@
 "use client";
 
+import { images } from "@/app/constants/bgImages";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoImagesOutline } from "react-icons/io5";
 
 const BackgroundImages = ({ onSelectImage }) => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const images = [
-    "/bg6.jpeg",
-    "/bg7.jpeg",
-    "/blossom.jpeg",
-    "/cafeteria.jpeg",
-    "/dark-academia.jpeg",
-    "/dreamy-clouds.jpeg"
-  ];
 
   const handleBgImage = () => {
     setIsVisible(!isVisible);
