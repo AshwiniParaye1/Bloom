@@ -50,7 +50,6 @@ const Timer = () => {
 
   return (
     <>
-      {/* Timer Presets */}
       <div className="flex gap-4">
         <Button
           variant="outline"
@@ -79,24 +78,22 @@ const Timer = () => {
         >
           Long Break
         </Button>
+        <Button
+          variant="outline"
+          className={`${
+            selectedTimer === "custom" ? "bg-gray-200" : "text-gray-200"
+          } text-base`}
+          onClick={() => setIsEditing(true)}
+        >
+          Custom
+        </Button>
       </div>
 
       {/* Timer Display */}
-      <div className="font-semibold text-6xl mt-6 mb-6 flex flex-row gap-4 items-center justify-center">
+      <div className="font-semibold text-6xl mt-6 mb-6">
         <p className="text-gray-200">{formatTime(time)}</p>
-        <button
-          variant="outline"
-          // className={`${
-          //   selectedTimer === "custom" ? "bg-gray-200" : "text-gray-200"
-          // } text-base`}
-          className="text-gray-200"
-          onClick={() => setIsEditing(true)}
-        >
-          <RiEditLine size={30} className="hover:text-black" />
-        </button>
       </div>
 
-      {/* Edit Timer Input */}
       {isEditing && (
         <div className="flex gap-2 items-center mb-4">
           <input
@@ -118,7 +115,6 @@ const Timer = () => {
         </div>
       )}
 
-      {/* Timer Controls */}
       <div className="flex gap-4">
         <Button
           variant="outline"
