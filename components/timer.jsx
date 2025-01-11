@@ -3,13 +3,15 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
-import { RiRestartLine } from "react-icons/ri";
+import { RiRestartLine, RiEditLine } from "react-icons/ri";
 
 const Timer = () => {
   const [initialTime, setInitialTime] = useState(25 * 60);
   const [time, setTime] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
-  const [selectedTimer, setSelectedTimer] = useState("pomodoro"); // Track selected button
+  const [selectedTimer, setSelectedTimer] = useState("pomodoro");
+  const [isEditing, setIsEditing] = useState(false);
+  const [customMinutes, setCustomMinutes] = useState(25);
 
   const formatTime = (time) => {
     if (time === null || time < 0) return "00:00";
@@ -21,7 +23,6 @@ const Timer = () => {
     )}`;
   };
 
-  // Handle timer countdown
   useEffect(() => {
     let timer;
     if (isRunning && time > 0) {
@@ -34,16 +35,23 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, [isRunning, time]);
 
-  // Handle setting a new initial time and updating selected timer
   const handleSetInitialTime = (newTime, timerType) => {
     setInitialTime(newTime);
     setTime(newTime);
     setSelectedTimer(timerType);
     setIsRunning(false);
+    setIsEditing(false);
   };
+
+  const handleCustomTimeSubmit = () => {
+    const customTimeInSeconds = customMinutes * 60;
+    handleSetInitialTime(customTimeInSeconds, "custom");
+  };
+
   return (
     <>
-      <div className="flex gap-4 ">
+      {/* Timer Presets */}
+      <div className="flex gap-4">
         <Button
           variant="outline"
           className={`${
@@ -57,7 +65,7 @@ const Timer = () => {
           variant="outline"
           className={`${
             selectedTimer === "shortBreak" ? "bg-gray-200" : "text-gray-200"
-          } text-base `}
+          } text-base`}
           onClick={() => handleSetInitialTime(5 * 60, "shortBreak")}
         >
           Short Break
@@ -73,36 +81,59 @@ const Timer = () => {
         </Button>
       </div>
 
-      <div className="font-semibold text-6xl mt-6 mb-6">
+      {/* Timer Display */}
+      <div className="font-semibold text-6xl mt-6 mb-6 flex flex-row gap-4 items-center justify-center">
         <p className="text-gray-200">{formatTime(time)}</p>
+        <button
+          variant="outline"
+          // className={`${
+          //   selectedTimer === "custom" ? "bg-gray-200" : "text-gray-200"
+          // } text-base`}
+          className="text-gray-200"
+          onClick={() => setIsEditing(true)}
+        >
+          <RiEditLine size={30} className="hover:text-black" />
+        </button>
       </div>
 
-      {/* start/pause, restart */}
-      <div className="flex gap-4">
-        <div className="flex gap-4">
+      {/* Edit Timer Input */}
+      {isEditing && (
+        <div className="flex gap-2 items-center mb-4">
+          <input
+            type="number"
+            min="1"
+            max="180"
+            value={customMinutes}
+            onChange={(e) => setCustomMinutes(e.target.value)}
+            className="w-16 p-2 text-black text-center rounded"
+          />
+          <span className="text-gray-200">minutes</span>
           <Button
             variant="outline"
-            onClick={() => {
-              if (time > 0) setIsRunning(!isRunning);
-              setIsRunning(!isRunning);
-            }}
             className="bg-gray-200"
+            onClick={handleCustomTimeSubmit}
           >
-            {isRunning ? <IoPlayOutline /> : <IoPauseOutline />}
+            Set
           </Button>
         </div>
+      )}
 
-        <div>
-          <Button
-            variant="outline"
-            onClick={() => {
-              if (initialTime !== null) setTime(initialTime);
-            }}
-            className="bg-gray-200"
-          >
-            <RiRestartLine />
-          </Button>
-        </div>
+      {/* Timer Controls */}
+      <div className="flex gap-4">
+        <Button
+          variant="outline"
+          onClick={() => setIsRunning(!isRunning)}
+          className="bg-gray-200"
+        >
+          {isRunning ? <IoPauseOutline /> : <IoPlayOutline />}
+        </Button>
+        <Button
+          variant="outline"
+          onClick={() => handleSetInitialTime(initialTime, selectedTimer)}
+          className="bg-gray-200"
+        >
+          <RiRestartLine />
+        </Button>
       </div>
     </>
   );
