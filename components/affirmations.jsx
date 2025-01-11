@@ -1,6 +1,6 @@
 import axios from "axios";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { RiRestartLine } from "react-icons/ri";
 
 const Affirmations = () => {
   const [affirmation, setAffirmation] = useState("");
@@ -9,6 +9,7 @@ const Affirmations = () => {
   // Function to fetch an affirmation
   const fetchAffirmation = async () => {
     setLoading(true);
+
     try {
       const response = await axios.get("https://www.affirmations.dev/");
       setAffirmation(response.data.affirmation);
@@ -26,20 +27,24 @@ const Affirmations = () => {
     // Fetch a new affirmation every 2 hours
     const interval = setInterval(() => {
       fetchAffirmation();
-    }, 2 * 60 * 60 * 1000); // 2 hours
+    }, 2 * 60 * 60 * 1000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="text-white text-lg flex items-center">
       {/* Refresh Button */}
       <button className="hover:text-black mr-2" onClick={fetchAffirmation}>
-        <RiRestartLine />
+        <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
       </button>
 
       {/* Show Loading or Affirmation */}
-      {loading ? <p>Loading...</p> : <p className="mr-8">{affirmation}</p>}
+      {loading ? (
+        <p>Breath in... Breath Out...</p>
+      ) : (
+        <p className="mr-8">{affirmation}</p>
+      )}
     </div>
   );
 };
