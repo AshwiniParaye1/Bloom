@@ -7,14 +7,14 @@ import { IoMusicalNotesOutline } from "react-icons/io5";
 const BackgroundMusic = ({ trackUrl }) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleBgImage = () => {
+  const handleMusicTrack = () => {
     setIsVisible(!isVisible);
   };
 
   return (
     <>
       <div className="text-gray-200">
-        <button onClick={handleBgImage}>
+        <button onClick={handleMusicTrack}>
           <IoMusicalNotesOutline size={25} />
         </button>
       </div>
@@ -24,12 +24,11 @@ const BackgroundMusic = ({ trackUrl }) => {
           {tracks.map((trackUrl, index) => (
             <iframe
               key={index}
-              width="100%"
-              height="166"
               allow="autoplay"
               src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(
                 trackUrl
               )}`}
+              className="w-full h-36 object-cover rounded-xl cursor-pointer"
             ></iframe>
           ))}
         </div>

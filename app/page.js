@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import NavItems from "@/components/navItems/navitems";
 import Timer from "@/components/timer";
-import { Button } from "@/components/ui/button";
 
 const Home = () => {
   const [backgroundImage, setBackgroundImage] = useState("/cafeteria.jpeg");
