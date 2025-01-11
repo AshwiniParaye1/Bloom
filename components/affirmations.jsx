@@ -33,17 +33,21 @@ const Affirmations = () => {
   }, []);
 
   return (
-    <div className="text-white text-lg flex items-center">
-      {/* Refresh Button */}
-      <button className="hover:text-black mr-2" onClick={fetchAffirmation}>
-        <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
-      </button>
+    <div className="text-white text-lg flex items-center relative">
+      <div className="relative group">
+        <button className="hover:text-black mr-2" onClick={fetchAffirmation}>
+          <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
+        </button>
 
-      {/* Show Loading or Affirmation */}
+        <span className="absolute left-28 transform -translate-x-1/2 top-full text-sm text-gray-200 px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap cursor-pointer">
+          Bloom where you are planted 🌿
+        </span>
+      </div>
+
       {loading ? (
-        <p>Breath in... Breath Out...</p>
+        <p>Breathe in... Breathe out...</p>
       ) : (
-        <p className="mr-8">{affirmation}</p>
+        <p className="ml-4">{affirmation}</p>
       )}
     </div>
   );
