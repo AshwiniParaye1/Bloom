@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import NavItems from "@/components/navItems/navitems";
 import Timer from "@/components/timer";
+import Affirmations from "@/components/affirmations";
 
 const Home = () => {
   const [backgroundImage, setBackgroundImage] = useState("/cafeteria.jpeg");
@@ -26,7 +27,11 @@ const Home = () => {
       >
         <Timer />
 
-        <div className="absolute top-8 right-8 -translate-y-1/2 ">
+        <div className="absolute top-8 left-8 -translate-y-1/2">
+          <Affirmations />
+        </div>
+
+        <div className="absolute top-8 right-8 -translate-y-1/2">
           <p className=" text-gray-200 text-xl">{time.toLocaleTimeString()}</p>
         </div>
 
