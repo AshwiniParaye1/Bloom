@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta property="og:image" content="/lotus.png" />
+        <meta name="twitter:image" content="<generated>" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
