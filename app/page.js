@@ -27,7 +27,7 @@ const Home = () => {
       >
         <Timer />
 
-        <div className="absolute top-8 left-8 -translate-y-1/2">
+        <div className="absolute top-8 left-8 -translate-y-1/2 ">
           <Affirmations />
         </div>
 
