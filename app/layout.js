@@ -1,6 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import Head from "next/head";
+import { Geist, Azeret_Mono as Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,45 +15,37 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Bloom",
   description: "Bloom where you are planted",
-  image: "/lotus.png"
+  metadataBase: new URL("https://www.bloomwithin.site"),
+  openGraph: {
+    title: "Bloom",
+    description: "Bloom where you are planted",
+    url: "https://www.bloomwithin.site",
+    siteName: "Bloom",
+    images: [
+      {
+        url: "/bloom-og.PNG",
+        width: 1200,
+        height: 630
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bloom",
+    description: "Bloom where you are planted",
+    images: ["/bloom-og.PNG"]
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-
-        {/* Open Graph (OG) Metadata for Social Media */}
-        <meta property="og:title" content="Bloom" />
-        <meta property="og:description" content="Bloom where you are planted" />
-        <meta
-          property="og:image"
-          content="https://www.bloomwithin.site/lotus.png"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.bloomwithin.site" />
-        <meta property="og:site_name" content="Bloom" />
-
-        {/* Twitter Card Metadata */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bloom" />
-        <meta
-          name="twitter:description"
-          content="Bloom where you are planted"
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.bloomwithin.site/lotus.png"
-        />
-      </Head>
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
