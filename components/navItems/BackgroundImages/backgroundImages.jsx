@@ -21,7 +21,7 @@ const BackgroundImages = ({ onSelectImage }) => {
       </div>
 
       {isVisible && (
-        <div className="absolute top-1/2 left-16 -translate-y-1/2 w-64 max-h-64 overflow-y-scroll bg-gradient-to-bl from-black to-transparent p-4 rounded-xl flex flex-col gap-4">
+        <div className="absolute sm:top-1/2 left-16 sm:-translate-y-1/2 sm:w-64 sm:max-h-64 w-40 max-h-40  top-0 overflow-y-scroll bg-gradient-to-bl from-black to-transparent p-4 rounded-xl flex flex-col gap-4">
           {images.map((src, index) => (
             <Image
               key={index}

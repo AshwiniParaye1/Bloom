@@ -6,7 +6,7 @@ import Timer from "@/components/timer";
 import Affirmations from "@/components/affirmations";
 
 const Home = () => {
-  const [backgroundImage, setBackgroundImage] = useState("/cafeteria.jpeg");
+  const [backgroundImage, setBackgroundImage] = useState("/vintage1.jpeg");
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Home = () => {
           <p className=" text-gray-200 text-xl">{time.toLocaleTimeString()}</p>
         </div>
 
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 ml-8">
+        <div className="absolute sm:top-1/2 sm:left-0 sm:-translate-y-1/2 ml-8 top-16 left-1 ">
           <NavItems onSelectImage={setBackgroundImage} />
         </div>
 

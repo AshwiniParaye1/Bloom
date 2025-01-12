@@ -34,7 +34,7 @@ const Affirmations = () => {
 
   return (
     <div className="text-white text-lg flex items-center relative">
-      <div className="relative">
+      <div className="relative top-2">
         <button className="mr-2" onClick={fetchAffirmation}>
           <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
         </button>
