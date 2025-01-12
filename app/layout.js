@@ -33,10 +33,7 @@ export default function RootLayout({ children }) {
         {/* Open Graph (OG) Metadata for Social Media */}
         <meta property="og:title" content="Bloom" />
         <meta property="og:description" content="Bloom where you are planted" />
-        <meta
-          property="og:image"
-          content="https://www.bloomwithin.site/lotus.png"
-        />
+        <meta property="og:image" content="/lotus.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.bloomwithin.site" />
         <meta property="og:site_name" content="Bloom" />
@@ -48,10 +45,7 @@ export default function RootLayout({ children }) {
           name="twitter:description"
           content="Bloom where you are planted"
         />
-        <meta
-          name="twitter:image"
-          content="https://www.bloomwithin.site/lotus.png"
-        />
+        <meta name="twitter:image" content="/lotus.png" />
       </Head>
 
       <body
