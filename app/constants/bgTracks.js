@@ -8,10 +8,6 @@ export const tracks = [
     url: "https://soundcloud.com/rishabsmusic/kaultilya-tour-version?si=2845d81e0f084c2d8a77b59d9a140718&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
-    name: "Om Divine Chant",
-    url: "https://soundcloud.com/brahmakumaris-bk/best-om-chanting-meditation-sound-divine-sound-of-god?si=2d14232fef9b4dfe8f59e1e10e071dfe&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
-  },
-  {
     name: "Sacred Strings",
     url: "https://soundcloud.com/harpinder-bhachu/sets/indian-sitar-music?si=c5d95f5ec51347408ae059e8008d330c&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
