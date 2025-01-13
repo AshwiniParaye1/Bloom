@@ -50,39 +50,43 @@ const Timer = () => {
 
   return (
     <>
-      <div className="flex gap-4">
+      <div className="sm:flex sm:mt-0 mt-28 gap-4 grid grid-cols-2">
         <Button
           variant="outline"
+          size="sm"
           className={`${
             selectedTimer === "pomodoro" ? "bg-gray-200" : "text-gray-200"
-          } text-base`}
+          } text-base w-28`}
           onClick={() => handleSetInitialTime(25 * 60, "pomodoro")}
         >
           Pomodoro
         </Button>
         <Button
           variant="outline"
+          size="sm"
           className={`${
             selectedTimer === "shortBreak" ? "bg-gray-200" : "text-gray-200"
-          } text-base`}
+          } text-base w-28`}
           onClick={() => handleSetInitialTime(5 * 60, "shortBreak")}
         >
           Short Break
         </Button>
         <Button
           variant="outline"
+          size="sm"
           className={`${
             selectedTimer === "longBreak" ? "bg-gray-200" : "text-gray-200"
-          } text-base`}
+          } text-base w-28`}
           onClick={() => handleSetInitialTime(10 * 60, "longBreak")}
         >
           Long Break
         </Button>
         <Button
           variant="outline"
+          size="sm"
           className={`${
             selectedTimer === "custom" ? "bg-gray-200" : "text-gray-200"
-          } text-base`}
+          } text-base w-28`}
           onClick={() => setIsEditing(true)}
         >
           Custom
@@ -90,7 +94,7 @@ const Timer = () => {
       </div>
 
       {/* Timer Display */}
-      <div className="font-semibold text-6xl mt-6 mb-6">
+      <div className="font-semibold sm:text-6xl text-4xl mt-6 mb-6">
         <p className="text-gray-200">{formatTime(time)}</p>
       </div>
 
