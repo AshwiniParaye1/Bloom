@@ -4,7 +4,7 @@ export const tracks = [
     url: "https://soundcloud.com/user-576651529/krishna-flute-music?si=1f0c4c9615bd46baa49286ae7189a20b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
-    name: "Lofi Christmas Beats",
+    name: "Lofi Beats",
     url: "https://soundcloud.com/lofi_study_christmas/sets/lofi-beats-chill-sad-study-sleep-relax-jazz-guitar-piano-instrumental-relaxing-music-rap-mix-lo-fi-soft-lofi-hip-hop-christmas-music-chritmas-songs?si=05cccd21adf046a5abdac299bfc5e420&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
