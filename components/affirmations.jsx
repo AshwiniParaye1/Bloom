@@ -33,18 +33,14 @@ const Affirmations = () => {
   }, []);
 
   return (
-    <div className="text-white text-lg flex items-center relative">
-      <div className="relative top-2">
-        <button className="mr-2" onClick={fetchAffirmation}>
-          <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
-        </button>
-      </div>
+    <div className="flex flex-row justify-center items-center space-x-4 text-white text-lg">
+      <button onClick={fetchAffirmation}>
+        <Image src={"/lotus1.gif"} alt="lotus" width={50} height={50} />
+      </button>
 
-      {loading ? (
-        <p className="ml-4 sm:block hidden">Breathe in... Breathe out...</p>
-      ) : (
-        <p className="ml-4 sm:block hidden">{affirmation}</p>
-      )}
+      <p className="sm:block hidden">
+        {loading ? "Breathe in... Breathe out..." : affirmation}
+      </p>
     </div>
   );
 };
