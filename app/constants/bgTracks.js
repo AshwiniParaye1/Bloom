@@ -4,8 +4,8 @@ export const tracks = [
     url: "https://soundcloud.com/user-576651529/krishna-flute-music?si=1f0c4c9615bd46baa49286ae7189a20b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
-    name: "Mystic Journey",
-    url: "https://soundcloud.com/rishabsmusic/kaultilya-tour-version?si=2845d81e0f084c2d8a77b59d9a140718&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+    name: "Lofi Christmas Beats",
+    url: "https://soundcloud.com/lofi_study_christmas/sets/lofi-beats-chill-sad-study-sleep-relax-jazz-guitar-piano-instrumental-relaxing-music-rap-mix-lo-fi-soft-lofi-hip-hop-christmas-music-chritmas-songs?si=05cccd21adf046a5abdac299bfc5e420&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
     name: "Sacred Strings",
@@ -14,6 +14,10 @@ export const tracks = [
   {
     name: "Tranquil Keys",
     url: "https://soundcloud.com/relaxing-music-production/sets/piano-covers?si=f2e66dd05bb141fe94eb19b3f896dd9d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  },
+  {
+    name: "Jazz Chill Vibes",
+    url: "https://soundcloud.com/woozlesband/sets/chillhop-radio-jazz-lofi-hip?si=8103fdab942f42569a73f156f2f581ac&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
     name: "Blissful Flute",
@@ -26,6 +30,10 @@ export const tracks = [
   {
     name: "Zen Melodies",
     url: "https://soundcloud.com/relaxing-music-production/sets/piano-covers?si=f04b4dd9e5634613ad811a318b55a77d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  },
+  {
+    name: "Urban Lofi Flow",
+    url: "https://soundcloud.com/blacklbeatz/sets/lofi-type-beat-lo-fi-beats-1?si=6df44a3e666f4b0092783ee598be8f1c&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
     name: "Mystical Vibes",
@@ -42,6 +50,10 @@ export const tracks = [
   {
     name: "Rasiya Rhythms",
     url: "https://soundcloud.com/rishabsmusic/dhun-rasiya-at-chhandayan-live?si=c533ab2095d442b6aea6ba4a1742fef6&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  },
+  {
+    name: "Ambient Serenity",
+    url: "https://soundcloud.com/5ynth-pnk-ambience/sets/lofi-music?si=200e4aeed2d84ec3b03efa29d45a61e5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   },
   {
     name: "Peaceful Strings",
