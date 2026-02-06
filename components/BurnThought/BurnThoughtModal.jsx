@@ -76,11 +76,14 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
     setState(STATES.WRITING);
   }, []);
 
-  const handleOverlayClick = useCallback((e) => {
-    if (e.target === e.currentTarget && state !== STATES.BURNING) {
-      handleClose();
-    }
-  }, [state, handleClose]);
+  const handleOverlayClick = useCallback(
+    (e) => {
+      if (e.target === e.currentTarget && state !== STATES.BURNING) {
+        handleClose();
+      }
+    },
+    [state, handleClose]
+  );
 
   // Modal animations
   const overlayVariants = {
@@ -143,11 +146,12 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
           <div
             className="absolute inset-0"
             style={{
-              background: state === STATES.BURNING
-                ? "radial-gradient(ellipse at bottom, rgba(40, 20, 10, 0.95) 0%, rgba(20, 15, 10, 0.98) 100%)"
-                : "linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.98) 100%)",
-              backdropFilter: "blur(8px)",
-              transition: "background 1s ease-out",
+              background:
+                state === STATES.BURNING
+                  ? "radial-gradient(circle at center, rgba(20, 10, 5, 0.3) 0%, rgba(10, 5, 0, 0.6) 100%)"
+                  : "rgba(0, 0, 0, 0.4)",
+              backdropFilter: "blur(6px)",
+              transition: "all 0.5s ease-out",
             }}
           />
 
@@ -166,13 +170,13 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
                 {state === STATES.COMPLETED
                   ? "Released"
                   : state === STATES.BURNING
-                    ? "Letting go..."
-                    : "Release a Thought"
-                }
+                  ? "Letting go..."
+                  : "Release a Thought"}
               </h2>
               {state === STATES.WRITING && (
                 <p className="text-white/60 text-sm">
-                  Write what&apos;s weighing on your mind. When you&apos;re ready, let it burn away.
+                  Write what&apos;s weighing on your mind. When you&apos;re
+                  ready, let it burn away.
                 </p>
               )}
             </div>
@@ -283,8 +287,13 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
                   }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 23c-3.866 0-7-2.239-7-5 0-1.636.785-3.088 2-4.026V6c0-2.761 2.239-5 5-5s5 2.239 5 5v7.974c1.215.938 2 2.39 2 4.026 0 2.761-3.134 5-7 5zm-2-5c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm3-8h-2V6c0-.552.448-1 1-1s1 .448 1 1v4z"/>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M12 23c-3.866 0-7-2.239-7-5 0-1.636.785-3.088 2-4.026V6c0-2.761 2.239-5 5-5s5 2.239 5 5v7.974c1.215.938 2 2.39 2 4.026 0 2.761-3.134 5-7 5zm-2-5c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm3-8h-2V6c0-.552.448-1 1-1s1 .448 1 1v4z" />
                     </svg>
                     Burn this thought
                   </span>
@@ -294,7 +303,8 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
                     <motion.div
                       className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       style={{
-                        background: "linear-gradient(135deg, #fbbf24 0%, #ef4444 100%)",
+                        background:
+                          "linear-gradient(135deg, #fbbf24 0%, #ef4444 100%)",
                         filter: "blur(8px)",
                         zIndex: -1,
                       }}
@@ -311,8 +321,15 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
                 className="absolute -top-2 -right-2 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-200"
                 aria-label="Close modal"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
               </button>
             )}
