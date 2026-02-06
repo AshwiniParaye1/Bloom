@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
-import { IoMusicalNotesOutline, IoClose } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
 import { tracks } from "@/app/constants/bgTracks";
+import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
+import { IoClose, IoMusicalNotesOutline } from "react-icons/io5";
 
 const BackgroundMusic = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const iframeRef = useRef(null);
@@ -15,15 +16,29 @@ const BackgroundMusic = () => {
   };
 
   const handleTrackSelection = (index) => {
-    setIsLoading(true);
-    setCurrentTrackIndex(index);
-    setIsVisible(false);
+    if (!widgetRef.current) return;
+
+    if (index === currentTrackIndex) {
+      if (isPlaying) {
+        widgetRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        widgetRef.current.play();
+        setIsPlaying(true);
+      }
+    } else {
+      setIsLoading(true);
+      setCurrentTrackIndex(index);
+      setIsPlaying(true);
+      setIsVisible(false);
+    }
   };
 
   const playNextTrack = () => {
     setCurrentTrackIndex((prevIndex) =>
       prevIndex === tracks.length - 1 ? 0 : prevIndex + 1
     );
+    setIsPlaying(true);
   };
 
   useEffect(() => {
@@ -59,7 +74,7 @@ const BackgroundMusic = () => {
     if (widgetRef.current) {
       setIsLoading(true);
       widgetRef.current.load(tracks[currentTrackIndex].url, {
-        auto_play: true,
+        auto_play: isPlaying,
         show_artwork: false,
         show_comments: false,
         show_playcount: false,
@@ -73,7 +88,10 @@ const BackgroundMusic = () => {
     <>
       <div className="text-gray-200">
         <button onClick={handleMusicTrack}>
-          <IoMusicalNotesOutline size={25} />
+          <IoMusicalNotesOutline
+            size={25}
+            className={isPlaying ? "text-blue-400 animate-pulse" : ""}
+          />
         </button>
       </div>
 
@@ -82,7 +100,7 @@ const BackgroundMusic = () => {
         id="soundcloud-player"
         src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(
           tracks[currentTrackIndex].url
-        )}&auto_play=true`}
+        )}&auto_play=false`}
         allow="autoplay"
         className="hidden"
       />
@@ -102,12 +120,12 @@ const BackgroundMusic = () => {
               key={index}
               onClick={() => handleTrackSelection(index)}
               className={`w-full h-36 rounded-xl cursor-pointer flex justify-center items-center ${
-                currentTrackIndex === index
+                currentTrackIndex === index && isPlaying
                   ? "bg-blue-200 text-blue-800"
-                  : "bg-gray-200"
+                  : "bg-gray-200 text-gray-800"
               }`}
             >
-              {track.name}
+              {track.name} {currentTrackIndex === index && isPlaying ? "(Playing)" : ""}
             </Button>
           ))}
         </div>
