@@ -6,6 +6,7 @@ import AshParticles from "./AshParticles";
 import BurningSound from "./BurningSound";
 import FireAnimation from "./FireAnimation";
 import PaperSheet from "./PaperSheet";
+import Image from "next/image";
 
 // State machine: idle | writing | burning | completed
 const STATES = {
@@ -287,15 +288,14 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
                   }}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 23c-3.866 0-7-2.239-7-5 0-1.636.785-3.088 2-4.026V6c0-2.761 2.239-5 5-5s5 2.239 5 5v7.974c1.215.938 2 2.39 2 4.026 0 2.761-3.134 5-7 5zm-2-5c0 1.105.895 2 2 2s2-.895 2-2-.895-2-2-2-2 .895-2 2zm3-8h-2V6c0-.552.448-1 1-1s1 .448 1 1v4z" />
-                    </svg>
-                    Burn this thought
+                    <Image
+                      src="/fire.gif"
+                      alt="fire"
+                      width={20}
+                      height={20}
+                      className="group-hover:animate-pulse"
+                    />
+                    Release this thought
                   </span>
 
                   {/* Hover glow effect */}
