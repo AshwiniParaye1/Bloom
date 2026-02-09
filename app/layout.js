@@ -1,5 +1,7 @@
 import { Geist, Azeret_Mono as Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { getBackgroundFromCookie } from "@/lib/cookies";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,15 +44,15 @@ export const metadata = {
   }
 };
 
-import { ThemeProvider } from "@/context/ThemeContext";
-
 export default function RootLayout({ children }) {
+  const initialBackground = getBackgroundFromCookie();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
+        <ThemeProvider initialBackground={initialBackground}>
           {children}
         </ThemeProvider>
       </body>
