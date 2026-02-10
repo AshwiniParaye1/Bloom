@@ -44,8 +44,8 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({ children }) {
-  const initialBackground = getBackgroundFromCookie();
+export default async function RootLayout({ children }) {
+  const initialBackground = await getBackgroundFromCookie();
 
   return (
     <html lang="en">
