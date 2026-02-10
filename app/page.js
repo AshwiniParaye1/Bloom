@@ -12,11 +12,14 @@ import { useEffect, useState } from "react";
 const Home = () =>
 {
   const { setBackgroundImage } = useTheme();
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(null);
   const [isBurnModalOpen, setIsBurnModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() =>
   {
+    setMounted(true);
+    setTime(new Date());
     const interval = setInterval(() =>
     {
       setTime(new Date());
@@ -34,7 +37,7 @@ const Home = () =>
       </div>
 
       <div className="absolute top-8 right-8">
-        <p className=" text-gray-200 text-xl">{time.toLocaleTimeString()}</p>
+        <p className=" text-gray-200 text-xl">{mounted && time ? time.toLocaleTimeString() : "--:--:--"}</p>
       </div>
 
       <div className="absolute sm:top-1/2 sm:left-0 sm:-translate-y-1/2 ml-8 top-16 mt-4 left-1">

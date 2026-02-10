@@ -33,6 +33,8 @@ const BurnThoughtModal = ({ isOpen, onClose }) => {
 
   // Handle escape key (only when not burning)
   useEffect(() => {
+    if (typeof document === "undefined") return;
+    
     const handleEscape = (e) => {
       if (e.key === "Escape" && state !== STATES.BURNING) {
         handleClose();

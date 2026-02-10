@@ -14,6 +14,7 @@ const preloadImage = (src) => {
 };
 
 const setCookie = (name, value, days = 365) => {
+  if (typeof window === 'undefined') return;
   const expires = new Date();
   expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
   document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict`;

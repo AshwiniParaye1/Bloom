@@ -1,3 +1,5 @@
+"use client";
+
 import { tracks } from "@/app/constants/bgTracks";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
@@ -42,9 +44,13 @@ const BackgroundMusic = () => {
   };
 
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+    
     // Initialize SoundCloud Widget
     if (iframeRef.current) {
       const initWidget = () => {
+        if (typeof window.SC === "undefined") return;
         // @ts-ignore
         widgetRef.current = window.SC.Widget(iframeRef.current);
 

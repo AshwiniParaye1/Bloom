@@ -132,6 +132,9 @@ const BurningSound = ({ isPlaying, volume = 0.3 }) => {
   }, []);
 
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === "undefined") return;
+    
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
