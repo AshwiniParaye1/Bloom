@@ -1,23 +1,24 @@
 "use client";
 
 import Affirmations from "@/components/affirmations";
+import { BurnThoughtModal } from "@/components/BurnThought";
 import DynamicBackground from "@/components/layout/DynamicBackground";
 import NavItems from "@/components/navItems/navitems";
 import Timer from "@/components/timer";
-import { Button } from "@/components/ui/button";
 import { useTheme } from "@/context/ThemeContext";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { BurnThoughtModal } from "@/components/BurnThought";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = () =>
+{
   const { setBackgroundImage } = useTheme();
   const [time, setTime] = useState(new Date());
   const [isBurnModalOpen, setIsBurnModalOpen] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  useEffect(() =>
+  {
+    const interval = setInterval(() =>
+    {
       setTime(new Date());
     }, 1000); // Update every second
 
@@ -36,7 +37,7 @@ const Home = () => {
         <p className=" text-gray-200 text-xl">{time.toLocaleTimeString()}</p>
       </div>
 
-      <div className="absolute sm:top-1/2 sm:left-0 sm:-translate-y-1/2 ml-8 top-16 left-1">
+      <div className="absolute sm:top-1/2 sm:left-0 sm:-translate-y-1/2 ml-8 top-16 mt-4 left-1">
         <NavItems onSelectImage={setBackgroundImage} />
       </div>
 
